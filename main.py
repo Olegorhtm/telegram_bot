@@ -29,7 +29,7 @@ async def buttons(message: types.Message):
 
 @dp.message(F.text.lower() == "все_продукты")
 async def poster(message: types.Message):
-    with (open("pumascrap/pumascrap/spiders/product.csv", encoding='utf8') as read_file):
+    with (open("product.csv", encoding='utf8') as read_file):
         file_reader = csv.DictReader(read_file, delimiter=",")
         for row in file_reader:
             product = f"{hlink(row['name'], row['link'])} \n\n" \
