@@ -15,8 +15,8 @@ dp = Dispatcher()
 logging.basicConfig(level=logging.INFO)
 
 
-async def main():
-    await dp.start_polling(bot, skip_updates=True)
+async def main(): \
+        await dp.start_polling(bot, skip_updates=True)
 
 
 @dp.message(Command("start"))
