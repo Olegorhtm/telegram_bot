@@ -29,17 +29,17 @@ async def buttons(message: types.Message):
 
 @dp.message(F.text.lower() == "все_продукты")
 async def poster(message: types.Message):
-    with (open("product.csv", encoding='utf8') as read_file):
-        file_reader = csv.DictReader(read_file, delimiter=",")
-        for row in file_reader:
-            product = f"{hlink(row['name'], row['link'])} \n\n" \
-                      f"Description: {hbold(row['description'])}\n\n" \
-                      f"Price: {hstrikethrough(row['price'])}\n\n" \
-                      f"Sale: {hunderline(row['sale'])}\n\n"
+  with (open("product.csv", encoding='utf8') as read_file):
+    file_reader = csv.DictReader(read_file, delimiter=",")
+      for row in file_reader:
+        product = f"{hlink(row['name'], row['link'])} \n\n" \
+                  f"Description: {hbold(row['description'])}\n\n" \
+                  f"Price: {hstrikethrough(row['price'])}\n\n" \
+                  f"Sale: {hunderline(row['sale'])}\n\n"
 
-            image = URLInputFile(row['photo'])
-            time.sleep(3)
-            await bot.send_message(chat_id=chanel_name, text=product)
+        image = URLInputFile(row['photo'])
+        time.sleep(3)
+        await bot.send_message(chat_id=chanel_name, text=product)
 
 
 @dp.message(F.text.lower() == "cкидки")
